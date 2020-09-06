@@ -1,0 +1,9 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "author": "Aeroluna",
+  "description": "Press backspace to reset the FPFC camera",
+  "gameVersion": "1.11.1",
+  "id": "FPFCReset",
+  "name": "FPFCReset",
+  "version": "1.0.0"
+}
