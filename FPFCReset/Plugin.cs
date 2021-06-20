@@ -11,7 +11,7 @@
     {
         public static IPALogger Logger { get; set; }
 
-        private const string HARMONYID = "com.noodle.BeatSaber.FPFCReset";
+        private const string HARMONYID = "com.aeroluna.BeatSaber.FPFCReset";
         private static readonly Harmony _harmonyInstance = new Harmony(HARMONYID);
 
         [Init]

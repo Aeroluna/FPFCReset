@@ -7,9 +7,7 @@
     [HarmonyPatch("Start")]
     internal static class FirstPersonFlyingControllerStart
     {
-#pragma warning disable SA1313 // Parameter names should begin with lower-case letter
         private static void Postfix(ref float ____cameraFov)
-#pragma warning restore SA1313 // Parameter names should begin with lower-case letter
         {
             ____cameraFov = Config.Instance.FieldOfView;
         }
@@ -19,11 +17,9 @@
     [HarmonyPatch("LookRotation")]
     internal static class MouseLookLookRotation
     {
-#pragma warning disable SA1313 // Parameter names should begin with lower-case letter
         private static void Prefix(Transform character, Transform camera, ref Quaternion ____characterTargetRot, ref Quaternion ____cameraTargetRot)
-#pragma warning restore SA1313 // Parameter names should begin with lower-case letter
         {
-            if (Input.GetKeyDown(KeyCode.Backspace))
+            if (Input.GetKeyDown(Config.Instance.ResetKeyCode))
             {
                 camera.GetComponent<Camera>().fieldOfView = Config.Instance.FieldOfView;
 
