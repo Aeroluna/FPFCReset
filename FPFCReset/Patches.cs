@@ -9,7 +9,7 @@
     {
         private static void Postfix(ref float ____cameraFov)
         {
-            ____cameraFov = Config.Instance.FieldOfView;
+            ____cameraFov = Config.Instance?.FieldOfView ?? ____cameraFov;
         }
     }
 
@@ -19,7 +19,7 @@
     {
         private static void Prefix(Transform character, Transform camera, ref Quaternion ____characterTargetRot, ref Quaternion ____cameraTargetRot)
         {
-            if (Input.GetKeyDown(Config.Instance.ResetKeyCode))
+            if (Config.Instance != null && Input.GetKeyDown(Config.Instance.ResetKeyCode))
             {
                 camera.GetComponent<Camera>().fieldOfView = Config.Instance.FieldOfView;
 

@@ -9,10 +9,10 @@
     [Plugin(RuntimeOptions.SingleStartInit)]
     internal class Plugin
     {
-        public static IPALogger Logger { get; set; }
-
         private const string HARMONYID = "com.aeroluna.BeatSaber.FPFCReset";
         private static readonly Harmony _harmonyInstance = new Harmony(HARMONYID);
+
+        public static IPALogger? Logger { get; set; }
 
         [Init]
         public void Init(IPALogger logger, IPA.Config.Config conf)
