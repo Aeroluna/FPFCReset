@@ -1,5 +1,6 @@
 ﻿namespace FPFCReset
 {
+    using System.Linq;
     using System.Reflection;
     using HarmonyLib;
     using IPA;
@@ -12,7 +13,7 @@
         private const string HARMONYID = "com.aeroluna.BeatSaber.FPFCReset";
         private static readonly Harmony _harmonyInstance = new Harmony(HARMONYID);
 
-        public static IPALogger? Logger { get; set; }
+        public static IPALogger Logger { get; set; } = null!;
 
         [Init]
         public void Init(IPALogger logger, IPA.Config.Config conf)
@@ -25,6 +26,12 @@
         public void OnEnable()
         {
             _harmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
+
+            if (IPA.Loader.PluginManager.EnabledPlugins.Any(x => x.Id == "SiraUtil"))
+            {
+                Logger.Info("SiraUtil detected, patching...");
+                SiraUtilFPFCPatch.ApplyPatches(_harmonyInstance);
+            }
         }
     }
 }

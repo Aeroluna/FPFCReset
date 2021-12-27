@@ -5,7 +5,7 @@
 
     public class Config
     {
-        public static Config? Instance { get; set; }
+        public static Config Instance { get; set; } = null!;
 
         public string ResetKey
         {
